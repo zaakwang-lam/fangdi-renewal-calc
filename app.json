@@ -1,0 +1,10 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "房抵续贷计算"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

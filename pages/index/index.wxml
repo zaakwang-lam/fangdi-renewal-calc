@@ -1,0 +1,8 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <text>房抵续贷可行性计算器</text>
+  <button bindtap="calculate">计算</button>
+  <view wx:if="{{result}}">
+    <text>{{result}}</text>
+  </view>
+</view>
