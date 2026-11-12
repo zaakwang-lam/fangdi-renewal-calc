@@ -1,8 +1,0 @@
-<!--pages/templates/templates.wxml-->
-<view class="container">
-  <text>银行政策模板库（付费）</text>
-  <view wx:for="{{templates}}" wx:key="id">
-    <text>{{item.bank}}</text>
-    <text wx:if="{{item.locked}}"> 需订阅</text>
-  </view>
-</view>

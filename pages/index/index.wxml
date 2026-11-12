@@ -1,17 +1,102 @@
-<view class="container">
-  <text>房抵续贷测算</text>
-  <picker mode="selector" range="{{banks}}" value="{{bankIndex}}" bindchange="onBank">
-    <view>口径：{{banks[bankIndex]}}</view>
-  </picker>
-  <input type="digit" placeholder="当前估值（万）" data-k="currentValue" value="{{form.currentValue}}" bindinput="onNum" />
-  <input type="digit" placeholder="原评估（万）" data-k="originalValue" value="{{form.originalValue}}" bindinput="onNum" />
-  <input type="digit" placeholder="剩余本金（万）" data-k="remainingPrincipal" value="{{form.remainingPrincipal}}" bindinput="onNum" />
-  <input type="digit" placeholder="房龄" data-k="age" value="{{form.age}}" bindinput="onNum" />
-  <input type="digit" placeholder="借款人年龄" data-k="borrowerAge" value="{{form.borrowerAge}}" bindinput="onNum" />
-  <input type="digit" placeholder="剩余年限" data-k="remainingYears" value="{{form.remainingYears}}" bindinput="onNum" />
-  <button bindtap="onCalc">计算</button>
-  <view wx:if="{{result.ok}}">
-    <text>{{result.status}} · 建议 {{result.suggested}} 万 · 上限 {{result.maxLoan}} 万</text>
-    <text>{{result.talk}}</text>
+<view class="page">
+  <view class="hero card">
+    <view class="kicker">同行底稿</view>
+    <view class="card-title">房抵续贷测算</view>
+    <view class="card-sub">经验抵押率，用来跟客户对齐缺口。不是银行批复。</view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">测算条件</view>
+    <picker mode="selector" range="{{banks}}" value="{{bankIndex}}" bindchange="onBank">
+      <view class="field">
+        <text class="label">测算口径</text>
+        <view class="picker-value">{{banks[bankIndex]}}</view>
+      </view>
+    </picker>
+    <picker mode="selector" range="{{types}}" value="{{typeIndex}}" bindchange="onType">
+      <view class="field">
+        <text class="label">物业类型</text>
+        <view class="picker-value">{{types[typeIndex]}}</view>
+      </view>
+    </picker>
+    <picker mode="selector" range="{{districts}}" value="{{districtIndex}}" bindchange="onDistrict">
+      <view class="field">
+        <text class="label">区域</text>
+        <view class="picker-value">{{districts[districtIndex]}}</view>
+      </view>
+    </picker>
+
+    <view class="grid">
+      <view class="field">
+        <text class="label">当前估值（万）</text>
+        <input class="input" type="digit" value="{{form.currentValue}}" data-k="currentValue" bindinput="onNum" />
+      </view>
+      <view class="field">
+        <text class="label">原评估价（万）</text>
+        <input class="input" type="digit" value="{{form.originalValue}}" data-k="originalValue" bindinput="onNum" />
+      </view>
+      <view class="field">
+        <text class="label">剩余本金（万）</text>
+        <input class="input" type="digit" value="{{form.remainingPrincipal}}" data-k="remainingPrincipal" bindinput="onNum" />
+      </view>
+      <view class="field">
+        <text class="label">原贷款额（万）</text>
+        <input class="input" type="digit" value="{{form.originalLoan}}" data-k="originalLoan" bindinput="onNum" />
+      </view>
+      <view class="field">
+        <text class="label">房龄（年）</text>
+        <input class="input" type="digit" value="{{form.age}}" data-k="age" bindinput="onNum" />
+      </view>
+      <view class="field">
+        <text class="label">借款人年龄</text>
+        <input class="input" type="digit" value="{{form.borrowerAge}}" data-k="borrowerAge" bindinput="onNum" />
+      </view>
+    </view>
+    <view class="field">
+      <text class="label">剩余年限</text>
+      <input class="input" type="digit" value="{{form.remainingYears}}" data-k="remainingYears" bindinput="onNum" />
+    </view>
+    <view class="switch-row">
+      <text>有未结诉讼</text>
+      <switch color="#1A365D" checked="{{form.lawsuit}}" data-k="lawsuit" bindchange="onSwitch" />
+    </view>
+    <view class="switch-row">
+      <text>当前逾期</text>
+      <switch color="#1A365D" checked="{{form.overdue}}" data-k="overdue" bindchange="onSwitch" />
+    </view>
+    <button class="btn calc" bindtap="onCalc">开始测算</button>
+  </view>
+
+  <view class="card" wx:if="{{result && result.ok}}">
+    <view class="result-head">
+      <view>
+        <view class="card-sub">建议对外口径</view>
+        <view class="big">{{result.suggested}}<text class="unit">万</text></view>
+      </view>
+      <view class="pill {{result.statusClass}}">{{result.status}}</view>
+    </view>
+    <view class="metrics">
+      <view class="metric">
+        <text class="metric-num">{{result.maxLoan}}</text>
+        <text class="metric-label">理论上限（万）</text>
+      </view>
+      <view class="metric">
+        <text class="metric-num">{{result.ltvText}}</text>
+        <text class="metric-label">抵押率</text>
+      </view>
+      <view class="metric">
+        <text class="metric-num">{{result.coverText}}</text>
+        <text class="metric-label">本金覆盖</text>
+      </view>
+      <view class="metric">
+        <text class="metric-num">{{result.gap}}</text>
+        <text class="metric-label">缺口（万）</text>
+      </view>
+    </view>
+    <view class="card-sub">{{result.note}}</view>
+    <view class="risk" wx:for="{{result.risks}}" wx:key="*this">{{item}}</view>
+    <view class="talk">{{result.talk}}</view>
+    <button class="btn" bindtap="onCopy">复制给客户的话</button>
+    <button class="btn-ghost gap" bindtap="goSubscribe">查看订阅档位</button>
   </view>
 </view>

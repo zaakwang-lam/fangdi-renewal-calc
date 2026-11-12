@@ -1,1 +1,45 @@
-.container { padding: 20rpx; }
+.hero {
+  background: #1a2332;
+}
+
+.hero .card-title {
+  color: #ffffff;
+}
+
+.kicker {
+  font-size: 22rpx;
+  letter-spacing: 4rpx;
+  color: #c4a35a;
+  margin-bottom: 8rpx;
+}
+
+.hero .card-sub {
+  color: #c9d0d8;
+}
+
+.plan-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.plan-name {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.plan-price {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #1a365d;
+}
+
+.yuan {
+  font-size: 22rpx;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.plan-btn {
+  margin-top: 24rpx;
+}
