@@ -1,10 +1,11 @@
-# 房抵续贷可行性计算器 (Fangdi Renewal Calc)
+# 房抵续贷可行性计算器
 
-微信小程序：帮助同行快速评估房产抵押经营贷续贷可行性。
+微信小程序骨架。算法在 [utils/calc.js](utils/calc.js)，说明在 [docs/algorithm.md](docs/algorithm.md)。
 
-## 功能规划
-- 输入房产信息、原贷款、预估价值
-- 输出大致可续额度与风险提示
-- 多银行政策模板（付费）
+- 支付：[docs/payment.md](docs/payment.md)
+- 获客文案：[docs/marketing.md](docs/marketing.md)
+- 产品说明：[docs/PRD.md](docs/PRD.md)
 
-详见 docs/PRD.md
+默认例子（天河住宅，估值从 280 万到 230 万，剩余本金 150 万）：保守口径上限 126.5 万，差 23.5 万。
+
+这不是银行批复。

@@ -1,7 +1,17 @@
-<!--pages/index/index.wxml-->
 <view class="container">
-  <text>房抵续贷可行性计算器</text>
-  <input placeholder="当前预估价（万）" bindinput="onInput" data-field="currentValue" />
-  <input placeholder="原贷款金额（万）" bindinput="onInput" data-field="loanAmount" />
-  <button bindtap="calculate">计算</button>
+  <text>房抵续贷测算</text>
+  <picker mode="selector" range="{{banks}}" value="{{bankIndex}}" bindchange="onBank">
+    <view>口径：{{banks[bankIndex]}}</view>
+  </picker>
+  <input type="digit" placeholder="当前估值（万）" data-k="currentValue" value="{{form.currentValue}}" bindinput="onNum" />
+  <input type="digit" placeholder="原评估（万）" data-k="originalValue" value="{{form.originalValue}}" bindinput="onNum" />
+  <input type="digit" placeholder="剩余本金（万）" data-k="remainingPrincipal" value="{{form.remainingPrincipal}}" bindinput="onNum" />
+  <input type="digit" placeholder="房龄" data-k="age" value="{{form.age}}" bindinput="onNum" />
+  <input type="digit" placeholder="借款人年龄" data-k="borrowerAge" value="{{form.borrowerAge}}" bindinput="onNum" />
+  <input type="digit" placeholder="剩余年限" data-k="remainingYears" value="{{form.remainingYears}}" bindinput="onNum" />
+  <button bindtap="onCalc">计算</button>
+  <view wx:if="{{result.ok}}">
+    <text>{{result.status}} · 建议 {{result.suggested}} 万 · 上限 {{result.maxLoan}} 万</text>
+    <text>{{result.talk}}</text>
+  </view>
 </view>
