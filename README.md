@@ -1,11 +1,9 @@
 # 房抵续贷可行性计算器
 
-微信小程序骨架。算法在 [utils/calc.js](utils/calc.js)，说明在 [docs/algorithm.md](docs/algorithm.md)。
+用微信开发者工具打开**这个文件夹**（里面直接有 `app.json`），不要打开上一级目录。
 
-- 支付：[docs/payment.md](docs/payment.md)
-- 获客文案：[docs/marketing.md](docs/marketing.md)
-- 产品说明：[docs/PRD.md](docs/PRD.md)
+没有自己的小程序 AppID 时，工具里选测试号或游客模式即可预览。已有 AppID 的，在开发者工具详情里改回自己的，不要用游客号上传。
 
-默认例子（天河住宅，估值从 280 万到 230 万，剩余本金 150 万）：保守口径上限 126.5 万，差 23.5 万。
+打开后首页应看到深色抬头、「开始测算」按钮和结果卡片。
 
-这不是银行批复。
+算法说明仍在 [docs/algorithm.md](docs/algorithm.md)。这不是银行批复。

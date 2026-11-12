@@ -1,0 +1,4 @@
+{
+  "desc": "房抵续贷测算",
+  "rules": [{ "action": "allow", "page": "*" }]
+}

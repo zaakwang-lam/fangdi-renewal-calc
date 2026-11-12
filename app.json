@@ -1,12 +1,14 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/result/result",
-    "pages/templates/templates",
     "pages/subscribe/subscribe"
   ],
   "window": {
-    "navigationBarTitleText": "房抵续贷计算"
+    "navigationBarBackgroundColor": "#1A2332",
+    "navigationBarTitleText": "房抵续贷测算",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F3F5F7",
+    "backgroundTextStyle": "dark"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
