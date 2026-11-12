@@ -1,8 +1,7 @@
 <!--pages/index/index.wxml-->
 <view class="container">
   <text>房抵续贷可行性计算器</text>
+  <input placeholder="当前预估价（万）" bindinput="onInput" data-field="currentValue" />
+  <input placeholder="原贷款金额（万）" bindinput="onInput" data-field="loanAmount" />
   <button bindtap="calculate">计算</button>
-  <view wx:if="{{result}}">
-    <text>{{result}}</text>
-  </view>
 </view>

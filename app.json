@@ -1,6 +1,9 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/result/result",
+    "pages/templates/templates",
+    "pages/subscribe/subscribe"
   ],
   "window": {
     "navigationBarTitleText": "房抵续贷计算"

@@ -1,9 +1,19 @@
 // pages/index/index.js
 Page({
   data: {
-    result: null
+    form: {
+      type: '住宅',
+      age: 10,
+      originalValue: 0,
+      currentValue: 0,
+      loanAmount: 0
+    }
   },
   calculate() {
-    // TODO: implement calculation logic
+    // TODO: basic calc logic, navigate to result
+    const ratio = 0.7; // example
+    wx.navigateTo({
+      url: '/pages/result/result?ratio=' + ratio
+    });
   }
 })

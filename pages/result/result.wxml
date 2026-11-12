@@ -1,0 +1,6 @@
+<!--pages/result/result.wxml-->
+<view class="container">
+  <text>计算结果</text>
+  <view>可续比例：{{result.ratio}}%</view>
+  <view>风险等级：{{result.risk}}</view>
+</view>

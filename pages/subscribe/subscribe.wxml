@@ -1,0 +1,8 @@
+<!--pages/subscribe/subscribe.wxml-->
+<view class="container">
+  <text>订阅页</text>
+  <view wx:for="{{plans}}" wx:key="id">
+    <text>{{item.name}} - ¥{{item.price}}/月</text>
+    <button bindtap="buy" data-id="{{item.id}}">订阅</button>
+  </view>
+</view>
